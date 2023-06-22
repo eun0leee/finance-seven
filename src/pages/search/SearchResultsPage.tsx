@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import SearchBox from './SearchComponents/SearchBox';
@@ -14,15 +14,17 @@ import { getSearchResults } from '../../common/api/Api';
 import { addCardResults, addLoanResults, addSavingsResults, addSubscriptionResults } from '../../store/searchSlice';
 
 const SearchResults = () => {
-  // 검색결과
   const dispatch = useDispatch();
   const params = useParams();
   const [keywordParams, setKeywordParams] = useState('');
 
+  //키워드 setState
   useEffect(() => {
     params.keywords !== undefined && setKeywordParams(params.keywords);
   }, [params]);
 
+  //params로 업데이트된 키워드로 api호출해서 검색결과 가져오기.
+  //리덕스 store에 결과 저장하기. 탭이 바뀌기 때문에 저장 필요.
   useEffect(() => {
     const getServerResultData = async () => {
       const cardData = await getSearchResults(keywordParams, 'card', 1);
@@ -38,13 +40,13 @@ const SearchResults = () => {
   }, [keywordParams]);
 
   const [tabIndex, setTabIndex] = useState(0);
-  const [category, setCategory] = useState([
+  const category = [
     { category: 'total', title: '통합', content: <ResultsTotal setTabIndex={setTabIndex} /> },
     { category: 'card', title: '카드', content: <ResultsCard /> },
     { category: 'loan', title: '대출', content: <ResultsLoan /> },
     { category: 'savings', title: '예적금', content: <ResultsSavings /> },
     { category: 'subscription', title: '청약', content: <ResultsSubscription /> },
-  ]);
+  ];
 
   return (
     <Container>
