@@ -9,23 +9,25 @@ import { IoChevronBackOutline } from 'react-icons/io5';
 import { addSearchKeywords } from '../../../common/api/Api';
 
 const SearchBox = () => {
+  //자동저장 on/off 상태 값
   const isToggleTrue = useSelector<ReducerType>((state) => state.autosave.isToggleTrue);
-
   const location = useLocation();
   const params = useParams();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState('');
-
   const findResultsPage = location.pathname.slice(0, 8) === '/search/';
 
+  //검색결과 페이지에서 검색바에 키워드 보여주기
   useEffect(() => {
     params.keywords !== undefined && setInputValue(params.keywords);
   }, []);
 
+  //검색결과 페이지에서만 뒤로가기 버튼 보여줌. 검색페이지로 이동하는 버튼.
   const handleBack = () => {
     navigate('/search');
   };
 
+  //검색 submit 되면, 페이지 이동 및 자동저장 여부에 따라 키워드 저장 api 호출
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -37,10 +39,13 @@ const SearchBox = () => {
     inputValue !== '' ? movepageAndAddkeywordAndCallApi() : alert('상품명을 입력해주세요.');
   };
 
+  //키워드가 있을 때만, 키워드삭제 버튼 보여주려고 사용
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    console.log(event.target.value);
   };
 
+  //키워드 삭제 버튼
   const handleDeleteBtn = () => {
     setInputValue('');
   };

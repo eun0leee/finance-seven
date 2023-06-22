@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { TfiClose } from 'react-icons/tfi';
@@ -15,20 +15,16 @@ interface StateObject {
   createdAt: string;
 }
 
-export interface StateArray extends Array<StateObject> {}
-
 const KeywordsList = () => {
-  // 리덕스 자동저장 state
   const dispatch = useDispatch();
-  const toggleAutosaveHandler = () => {
-    dispatch(toggle());
-  };
-  const isToggleTrue = useSelector<ReducerType>((state) => state.autosave.isToggleTrue);
-
-  const [data, setData] = useState<StateArray>([]);
+  const [data, setData] = useState<Array<StateObject>>([]);
   const [toast, setToast] = useState(false);
   const [deletedCount, setDeletedCount] = useState('');
+  const location = useLocation();
+  const findResultsPage = location.pathname.slice(0, 8) === '/search/';
+  const isToggleTrue = useSelector<ReducerType>((state) => state.autosave.isToggleTrue);
 
+  //서버에서 키워드 목록 가져오기
   useEffect(() => {
     const getSeverSearchKeywordsData = async () => {
       const json = await getSearchKeywords();
@@ -37,38 +33,38 @@ const KeywordsList = () => {
     getSeverSearchKeywordsData();
   }, []);
 
-  // 삭제
+  //키워드 단일 삭제
   const handleDeleteKeyword = (id: number) => {
     const deletedData = data.filter((element) => element.searchId !== id);
     setData(deletedData);
     deleteSearchKeywordsSingle(id);
   };
 
+  //키워드 전체 삭제
   const handleDeleteKeywordAll = async () => {
-    if (confirm('최근 검색어를 모두 삭제하시겠습니까?')) {
-      setData([]);
-      const res = await deleteSearchKeywordsAll();
+    if (!confirm('최근 검색어를 모두 삭제하시겠습니까?')) return;
+    setData([]);
+    const res = await deleteSearchKeywordsAll();
 
-      // 00개 삭제 완료 토스트 띄우기
-      res.status === 'success' && setToast(true);
-      setDeletedCount(res.deletedNum);
-    }
+    // 00개 삭제 완료 토스트 띄우기
+    res.status === 'success' && setToast(true);
+    setDeletedCount(res.deletedNum);
   };
 
-  // 자동저장
+  //리덕스 toggle 액션이 store로 전달, autusaveSlice의 reducer 실행
+  const toggleAutosaveHandler = () => {
+    dispatch(toggle());
+  };
+
+  //자동저장
   const handleAutoSave = () => {
-    if (isToggleTrue) {
-      confirm('최근 검색어 저장 기능을\n사용 중지하시겠습니까?') && toggleAutosaveHandler();
-    } else {
-      confirm('최근 검색어 저장 기능을\n사용 하시겠습니까?') && toggleAutosaveHandler();
-    }
+    confirm(
+      isToggleTrue ? '최근 검색어 저장 기능을\n사용 중지하시겠습니까?' : '최근 검색어 저장 기능을\n사용 하시겠습니까?'
+    ) && toggleAutosaveHandler();
   };
-
-  // 검색결과에서만 padding 값
-  const location = useLocation();
-  const findResultsPage = location.pathname.slice(0, 8) === '/search/';
 
   return (
+    //검색페에지와 검색결과페이지 스타일 다르게
     <Container className={findResultsPage ? 'resultPage' : ''}>
       <div>
         <h4>최근에 찾아봤던</h4>
