@@ -62,8 +62,9 @@
 <br><br>
 
 ## 2. 개발 환경 세팅
-```
-cd frontend
+``
+git clone https://github.com/eun0leee/finance-seven.git
+cd finance-seven
 npm install
 npm start
 ```
