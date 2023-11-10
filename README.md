@@ -77,15 +77,7 @@ npm start
 
 <br>
 
-## 4. 회고
-- [프론트엔드가 백엔드와 협업하는 협업과정](https://velog.io/@eun0leee/프론트엔드백엔드-팀프로젝트금융상품-추천사이트-만들기)  
-- [금융상품 추천 사이트 프로젝트 전체회고](https://velog.io/@eun0leee/금융상품-추천-사이트-전체회고)  
-- [최근본상품, 최근검색어, 자동저장 기능 구현하기](https://velog.io/@eun0leee/React-최근본상품-최근검색어-자동저장-기능-구현하기)  
-- [레이아웃 설정 중 App.tsx routes 에러](https://velog.io/@eun0leee/React-App.tsx-routes-에러)  
-
-<br>
-
-## 5. 팀원
+## 4. 팀원
 
 |<a href="https://github.com/0nesan">한수산(팀장)</a>|<a href="https://github.com/ghgt1">노준영</a>|<a href="https://github.com/eun0leee">이은영</a>|<a href="https://github.com/Hyojina">김효진</a>|
 |:---:|:---:|:---:|:---:|
@@ -97,3 +89,11 @@ npm start
 <a href="https://www.notion.so/7-00708e93757c4cbbaf91868a9873c92f">
   <img src="https://img.shields.io/badge/팀노션-fc9847?style=for-the-badge&logo=notion&logoColor=white" />
 </a>
+
+<br>
+
+## 5. 블로그 포스팅
+- [프론트엔드가 백엔드와 협업하는 협업과정](https://velog.io/@eun0leee/프론트엔드백엔드-팀프로젝트금융상품-추천사이트-만들기)  
+- [금융상품 추천 사이트 프로젝트 전체회고](https://velog.io/@eun0leee/금융상품-추천-사이트-전체회고)  
+- [최근본상품, 최근검색어, 자동저장 기능 구현하기](https://velog.io/@eun0leee/React-최근본상품-최근검색어-자동저장-기능-구현하기)  
+- [레이아웃 설정 중 App.tsx routes 에러](https://velog.io/@eun0leee/React-App.tsx-routes-에러)  
