@@ -7,7 +7,8 @@
 
 ![React](https://img.shields.io/badge/react-v18+-blue?logo=react)  
 
-서비스 링크 : ~~https://finance-seven.netlify.app/~~
+서비스 링크 : ~~https://finance-seven.netlify.app/~~  
+Wiki 링크 : https://github.com/eun0leee/finance-seven/wiki
 
 </div>
 
