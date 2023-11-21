@@ -84,12 +84,8 @@ npm start
 |:---:|:---:|:---:|:---:|
 |<a href="https://github.com/0nesan"><img src="https://avatars.githubusercontent.com/u/76930602?v=4" width=160/></a>|<a href="https://github.com/ghgt1"><img src="https://avatars.githubusercontent.com/u/35508595?v=4" width=160/></a>|<a href="https://github.com/eun0leee"><img src="https://avatars.githubusercontent.com/u/90189513?v=4" width=160/></a>|<a href="https://github.com/Hyojina"><img src="https://avatars.githubusercontent.com/u/107975281?v=4" width=160/></a>|
 
-<a href="https://github.com/KDT3MiniProjectTeam-7/Mini_Project_FE">
-  <img src="https://img.shields.io/badge/팀레포-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>&nbsp;&nbsp;
-<a href="https://www.notion.so/7-00708e93757c4cbbaf91868a9873c92f">
-  <img src="https://img.shields.io/badge/팀노션-fc9847?style=for-the-badge&logo=notion&logoColor=white" />
-</a>
+- [팀 리포지토리](https://github.com/KDT3MiniProjectTeam-7/Mini_Project_FE)
+- [팀 Wiki 문서](https://github.com/eun0leee/finance-seven/wiki)
 
 <br>
 
